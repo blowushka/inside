@@ -1,0 +1,57 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.inside'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('testcontainersVersion', "1.16.2")
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
+    compileOnly 'org.projectlombok:lombok'
+    compileOnly 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor 'org.projectlombok:lombok',
+            'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    annotationProcessor group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:postgresql'
+
+    implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.9.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.6.4'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.4'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    implementation 'org.springframework.security:spring-security-crypto:5.6.2'
+
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
