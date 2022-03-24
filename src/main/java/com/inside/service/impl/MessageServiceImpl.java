@@ -32,7 +32,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public MessageDTO save(String bearerToken, MessageDTO dto) {
 
-        provider.verifyToken(bearerToken);
+        provider.verifyToken(dto.getSender(), bearerToken);
 
         final var entity = mapper.toEntity(dto);
         User user = userService.findByName(dto.getSender())
@@ -45,7 +45,10 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public List<MessageDTO> getHistory(String userName, int amount) {
+    public List<MessageDTO> getHistory(String bearerToken, String userName, int amount) {
+
+        provider.verifyToken(userName, bearerToken);
+
         User user = userService.findByName(userName)
                 .orElseThrow(() -> new EntityNotFoundException(userName, User.class));
 

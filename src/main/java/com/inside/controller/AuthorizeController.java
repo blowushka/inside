@@ -21,6 +21,11 @@ public class AuthorizeController {
 
     private final JWTTokenProvider provider;
 
+    /**
+     * Authorize and generate JWT token for user
+     * @param userDTO JSON object which one contains
+     * @return JSON object with JWT token
+     */
     @PostMapping
     @Operation(summary = "Authorize user")
     public JWTEntity getJWT(@RequestBody UserDTO userDTO){

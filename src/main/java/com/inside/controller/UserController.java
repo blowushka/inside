@@ -18,6 +18,11 @@ public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Create new entry of User in the DB
+     * @param userDTO User DTO which one contains username and password
+     * @return JSON with name and encoded password
+     */
     @PutMapping
     @Operation(summary = "Create user")
     public UserDTO create(@RequestBody final UserDTO userDTO) {

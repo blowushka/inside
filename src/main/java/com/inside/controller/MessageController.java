@@ -19,14 +19,27 @@ public class MessageController {
 
     private final MessageService messageService;
 
+    /**
+     * Add message from user into the DB
+     * @param bearerToken JWT token for verification
+     * @param messageDTO Message DTO which one contains username and message
+     */
     @PostMapping
     @Operation(summary = "Save message to DataBase")
-    public void saveMessage(@RequestHeader (required = false) String bearerToken, @RequestBody MessageDTO messageDTO){
+    public void saveMessage(@RequestHeader String bearerToken, @RequestBody MessageDTO messageDTO){
         messageService.save(bearerToken, messageDTO);
     }
 
+    /**
+     * Get a specific amount of messages from the DB
+     * @param bearerToken JWT token for verification
+     * @param userName String username for which we want to put in the DB
+     * @param amount number of messages to return
+     * @return List of the messages
+     */
     @GetMapping("/history/{amount}")
-    public List<MessageDTO> getHistory(final String userName, final int amount) {
-      return messageService.getHistory(userName, amount);
+    @Operation(summary = "Get messages from DataBase")
+    public List<MessageDTO> getHistory(@RequestHeader String bearerToken, final String userName, final int amount) {
+      return messageService.getHistory(bearerToken, userName, amount);
     }
 }
