@@ -1,7 +1,6 @@
 package com.inside.controller;
 
 import com.inside.dto.UserDTO;
-import com.inside.service.UserService;
 import com.inside.service.security.JWTEntity;
 import com.inside.service.security.JWTTokenProvider;
 import io.swagger.v3.oas.annotations.Operation;

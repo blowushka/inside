@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @Tag(name = "Message", description = "The Message API")
@@ -19,7 +21,12 @@ public class MessageController {
 
     @PostMapping
     @Operation(summary = "Save message to DataBase")
-    public void saveMessage(@RequestBody MessageDTO messageDTO){
-        messageService.save(messageDTO);
+    public void saveMessage(@RequestHeader (required = false) String bearerToken, @RequestBody MessageDTO messageDTO){
+        messageService.save(bearerToken, messageDTO);
+    }
+
+    @GetMapping("/history/{amount}")
+    public List<MessageDTO> getHistory(final String userName, final int amount) {
+      return messageService.getHistory(userName, amount);
     }
 }
