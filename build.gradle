@@ -23,47 +23,54 @@ ext {
 }
 
 dependencies {
-                                    /* Spring Starters*/
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.6.4'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.4'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.6.4'
+                   /* Spring Starters*/
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4',
+                   'org.springframework.boot:spring-boot-starter-data-jpa:2.6.4',
+                   'org.springframework.boot:spring-boot-starter-jdbc:2.6.4',
 
-                                    /*Spring Security*/
-    implementation group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.6.2'
-    implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.6.2'
-    implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.2'
+                   /*Spring Security*/
+                   'org.springframework.security:spring-security-crypto:5.6.2',
+                   'org.springframework.security:spring-security-config:5.6.2',
+                   'org.springframework.security:spring-security-web:5.6.2',
 
-                                    /*Spring OpenAPI*/
-    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.6'
+                   /*Spring OpenAPI*/
+                   'org.springdoc:springdoc-openapi-ui:1.6.6',
 
-                                    /*Spring Test*/
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.6.4'
+                   /*Swagger*/
+                   'io.swagger.core.v3:swagger-annotations:2.1.13',
+                   'org.mapstruct:mapstruct:1.4.2.Final',
 
-                                    /*Swagger*/
-    implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.1.13'
+                   /*JJWT*/
+                   'io.jsonwebtoken:jjwt:0.9.1',
 
-                                    /*PostgreSQL & LiquiBase*/
-    runtimeOnly 'org.postgresql:postgresql'
-    implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.9.0'
-    testImplementation 'org.testcontainers:postgresql:1.16.3'
+                   /*LiquiBase*/
+                   'org.liquibase:liquibase-core:4.9.0',
 
-                                    /*Connection Pool*/
-    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+                   /*Connection Pool*/
+                   'com.zaxxer:HikariCP:5.0.1',
 
-                                    /*Mapstruct*/
-    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
-    annotationProcessor group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final',
-    'org.mapstruct:mapstruct-processor:1.4.2.Final'
+                   /*Mapstruct*/
+                   'org.mapstruct:mapstruct:1.4.2.Final'
 
-                                    /*JJWT*/
-    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+                /*PostgreSQL*/
+    runtimeOnly   'org.postgresql:postgresql'
 
-                                    /*Lombok Project*/
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+                /*Lombok Project*/
+    compileOnly 'org.projectlombok:lombok:1.18.22'
 
-                                    /*JUnit*/
-    testImplementation 'org.testcontainers:junit-jupiter:1.16.3'
+                        /*Mapstruct*/
+    annotationProcessor 'org.projectlombok:lombok:1.18.22',
+                        'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+
+                       /*Spring Test*/
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.4',
+
+                       /*JUnit*/
+                       'org.testcontainers:junit-jupiter:1.16.3',
+
+                       /*PostgreSQL*/
+                       'org.testcontainers:postgresql:1.16.3'
 
 }
 
