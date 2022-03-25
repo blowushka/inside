@@ -1,7 +1,6 @@
 package com.inside.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor

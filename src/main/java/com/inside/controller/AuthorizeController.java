@@ -23,7 +23,7 @@ public class AuthorizeController {
 
     /**
      * Authorize and generate JWT token for user
-     * @param userDTO JSON object which one contains
+     * @param userDTO User DTO which one contains username and password
      * @return JSON object with JWT token
      */
     @PostMapping

@@ -28,7 +28,6 @@ public class MessageServiceImpl implements MessageService {
     private final UserService userService;
     private final JWTTokenProvider provider;
 
-
     @Override
     public MessageDTO save(String bearerToken, MessageDTO dto) {
 

@@ -1,7 +1,6 @@
 package com.inside.service;
 
 import com.inside.dto.MessageDTO;
-import com.inside.model.Message;
 
 import java.util.List;
 
