@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  app:
+    image: insidev3
+    ports:
+      - "8081:8081"
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5433/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=pass
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: centos/postgresql-12-centos7:latest
+    container_name: db
+    environment:
+      POSTGRESQL_USER: postgres
+      POSTGRESQL_PASSWORD: pass
+      POSTGRESQL_DATABASE: postgres
+      POSTGRESQL_ADMIN_PASSWORD: 784419
+      POSTGRESQL_MAX_CONNECTIONS: 200
+    ports:
+      - "5433:5433"
+    volumes:
+      - postgresql_data:/var/lib/pgsql/data
+
+volumes:
+  postgresql_data:
+    driver: local

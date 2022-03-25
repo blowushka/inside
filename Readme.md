@@ -7,6 +7,9 @@
 4. Application using swagger-ui, so you can go to [**Swagger**](http://localhost:8081/swagger-ui/index.html) after server start up and check what you can do.
 5. You should use authorize endpoint first, so you get JWT token which one you need to use for other endpoints. Note that before the token in the bearerToken field you should add "Bearer_" prefix(after "Bearer" there is underscore).
 
+In case of using docker just run **docker-compose up** command
+
+
 # Endpoints FAQ:
 ## User
 
