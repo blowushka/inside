@@ -1,4 +1,3 @@
-![Inside logo](./src/main/resources/md/inside.jpg "Thanks for the opportunity!")
 
 # How to start:
 1. Server using port 8081, so make sure it's free.
